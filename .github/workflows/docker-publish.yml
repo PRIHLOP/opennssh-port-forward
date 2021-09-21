@@ -70,7 +70,7 @@ jobs:
         uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
         with:
           registry: ${{ env.DOCKER_IO_REGISTRY }}
-          username: ${{ github.actor }}
+          username: prihlop
           password: ${{ secrets.DOCKER_IO_REGISTRY_PASSWORD }}
 
       # Build and push Docker image with Buildx (don't push on PR)
