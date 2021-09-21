@@ -12,7 +12,7 @@ Docker container for port forwarding to service on remote host over SSH tunnel.
 
 - For start execute command `docker-compose up -d`.
 
-## Launch from GitHub Container Registry with docker-compose
+## Launch with docker-compose from GitHub Container Registry 
 
 - Install of [docker-compose](https://docs.docker.com/compose/install/) is required.
 
@@ -44,3 +44,20 @@ PATH_TO_SSH_KEY=~/.ssh
 ```
 
 - Start container with command `docker-compose up -d`.
+
+## Launch with `docker run` command from GitHub Container Registry
+
+Launch in one string:
+
+```bash
+    docker run -d \
+    -v ~/.ssh:/home/.ssh \
+    -p 80:80 \
+    -e SSHKEY=id_rsa \
+    -e TUNNEL_HOST=user@host \
+    -e LOCAL_PORT=80 \
+    -e REMOTE_HOST=127.0.0.1 \
+    -e REMOTE_PORT=8080 \
+    -e PATH_TO_SSH_KEY=~/.ssh \
+    ghcr.io/prihlop/openssh-port-forward:master
+```
