@@ -4,7 +4,7 @@ Docker container for port forwarding to service on remote host over SSH tunnel.
 
 ## Launch with docker-compose
 
-- Requre installed [docker-compose](https://docs.docker.com/compose/install/).
+- Install of [docker-compose](https://docs.docker.com/compose/install/) is required.
 
 - Clone this repository.
 
