@@ -14,9 +14,6 @@ on:
   pull_request:
     branches: [ master ]
 
-env:
-  GITHUB_HEAD_REF: ${{ github.event.inputs.branch || env.GITHUB_HEAD_REF }}
-
 jobs:
   push_to_registries:
     name: Push Docker image to multiple registries
@@ -27,6 +24,8 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
+        env:
+          GITHUB_HEAD_REF: ${{ github.event.inputs.branch || env.GITHUB_HEAD_REF }}
         with:
           ref: ${{ env.GITHUB_HEAD_REF }}
       
