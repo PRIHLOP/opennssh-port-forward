@@ -59,6 +59,5 @@ Launch in one string:
     -e LOCAL_PORT=80 \
     -e REMOTE_HOST=127.0.0.1 \
     -e REMOTE_PORT=8080 \
-    -e PATH_TO_SSH_KEY=~/.ssh \
     ghcr.io/prihlop/openssh-port-forward:master
 ```
