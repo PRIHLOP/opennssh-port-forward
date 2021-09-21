@@ -12,25 +12,26 @@ Docker container for port forwarding to service on remote host over SSH tunnel.
 
 - For start execute command `docker-compose up -d`.
 
-## Launch with docker-compose from GitHub Container Registry 
+## Launch with docker-compose from GitHub Container Registry
 
 - Install of [docker-compose](https://docs.docker.com/compose/install/) is required.
 
 - Create file `docker-compose.yml` with the next content:
 
-```openssh-port-forwarder:
-  image: ghcr.io/prihlop/openssh-port-forward:master
-  ports:
+```yml
+openssh-port-forwarder:
+   image: ghcr.io/prihlop/openssh-port-forward:master
+   ports:
     - $LOCAL_PORT:$LOCAL_PORT
-  environment:
+   environment:
     - SSHKEY=$SSHKEY 
     - TUNNEL_HOST=$TUNNEL_HOST
     - LOCAL_PORT=$LOCAL_PORT
     - REMOTE_HOST=$REMOTE_HOST
     - REMOTE_PORT=$REMOTE_PORT
-  volumes:
+   volumes:
     - $PATH_TO_SSH_KEY:/home/.ssh
-  restart: unless-stopped
+   restart: unless-stopped
 ```
 
 - Create file `.env` with the next content and edit variables to your:
