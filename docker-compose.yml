@@ -1,13 +1,14 @@
-openssh-port-forwarder:
-  build: .
-  ports:
-    - $LOCAL_PORT:$LOCAL_PORT
-  environment:
-    - SSHKEY
-    - TUNNEL_HOST
-    - LOCAL_PORT
-    - REMOTE_HOST
-    - REMOTE_PORT
-  volumes:
-    - $PATH_TO_SSH_KEY:/home/.ssh
-  restart: unless-stopped
+services:
+  openssh-port-forwarder:
+    build: .
+    ports:
+      - $LOCAL_PORT:$LOCAL_PORT
+    environment:
+      - SSHKEY
+      - TUNNEL_HOST
+      - LOCAL_PORT
+      - REMOTE_HOST
+      - REMOTE_PORT
+    volumes:
+      - $PATH_TO_SSH_KEY:/home/.ssh
+    restart: unless-stopped
